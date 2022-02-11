@@ -1,36 +1,27 @@
-/*
- * Programming Quiz: Inline Functions (5-6)
- */
- 
- /*
- * QUIZ REQUIREMENTS
- * - Your code should have an `emotions()` function
- * - Your code should call the `emotions()` function
- * - Your `emotions()` function call should have an inline function expression passed as the second parameter
- * - Your function expression should return the expected output
- */
+const moves = ['north', 'north', 'west', 'west', 'north', 'east', 'north'];
 
-
-// don't change this code
-// emotions() function definition
-function emotions(myString, myFunc) {
-  console.log("I am " + myString + ", " + myFunc(2));
+const finalPosition = function (moves) {
+  let start = [0, 0];
+  for (const direction of moves) {
+    console.log(direction)
+    switch (direction) {
+    case 'north':
+      start[1] += 1;
+      break;
+    case 'south':
+      start[1] -= 1;
+      break;
+    case 'east':
+      start[0] += 1;
+      break;
+    case 'west':
+      start[0] -= 1;
+      break;
+    default:
+      console.log('someting wong')
+      break;
+    }
+  } return start
 }
 
-// your code goes here
-// Call the emotions() function with two arguments
-// Argument 1 - "happy" string
-// Argument 2 - an inline function expression
-
-emotions ('happy',function(laughNum){
-
-    let haha =''
-    for (let i = 0; i < laughNum; i++) {
-      haha += 'ha';
-      
-    }
-    haha += '!'
-    return haha
-  }
-)
-
+console.log(finalPosition(moves))
